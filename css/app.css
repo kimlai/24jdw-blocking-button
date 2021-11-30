@@ -2,6 +2,11 @@
   font-family: sans-serif;
 }
 
+html {
+  height: 100%;
+  overflow: hidden; /* iframe integration */
+}
+
 main {
   min-height: 100vh;
   display: grid;
