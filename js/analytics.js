@@ -18,10 +18,27 @@ const sendAnalyticsInBatches = eventName => {
   }
 };
 
+const sendAnalyticsInDistributedBatches = eventName => {
+  doSendDistributed(70);
+};
+
+const doSendDistributed = i => {
+  if (i === 0) {
+    return;
+  }
+
+  if (checkConsentCookie()) {
+    // send analytics
+  }
+  setTimeout(() => {
+    doSendDistributed(i - 1);
+  });
+};
+
 const sendAnalyticsWithRequestIdleCallback = eventName => {
   let i = 0;
   const callback = deadline => {
-    while ((deadline.timeRemaining() > 20 || deadline.didTimeout) && i < 40) {
+    while ((deadline.timeRemaining() > 0 || deadline.didTimeout) && i < 40) {
       if (checkConsentCookie()) {
         // send analytics
       }
@@ -41,5 +58,6 @@ const checkConsentCookie = () => {
 export {
   sendAnalytics,
   sendAnalyticsInBatches,
+  sendAnalyticsInDistributedBatches,
   sendAnalyticsWithRequestIdleCallback
 };
