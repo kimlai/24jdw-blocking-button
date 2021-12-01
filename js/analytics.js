@@ -1,7 +1,7 @@
 import { expensiveComputation } from "./utils.js";
 
 const sendAnalytics = eventName => {
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 40; i++) {
     if (checkConsentCookie()) {
       // send analytics
     }
@@ -9,7 +9,7 @@ const sendAnalytics = eventName => {
 };
 
 const sendAnalyticsInBatches = eventName => {
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 40; i++) {
     setTimeout(() => {
       if (checkConsentCookie()) {
         // send analytics
@@ -21,13 +21,13 @@ const sendAnalyticsInBatches = eventName => {
 const sendAnalyticsWithRequestIdleCallback = eventName => {
   let i = 0;
   const callback = deadline => {
-    while ((deadline.timeRemaining() > 20 || deadline.didTimeout) && i < 50) {
+    while ((deadline.timeRemaining() > 20 || deadline.didTimeout) && i < 40) {
       if (checkConsentCookie()) {
         // send analytics
       }
       i++;
     }
-    if (i < 50) {
+    if (i < 40) {
       requestIdleCallback(callback);
     }
   };
@@ -35,7 +35,7 @@ const sendAnalyticsWithRequestIdleCallback = eventName => {
 };
 
 const checkConsentCookie = () => {
-  expensiveComputation(2); // remplace l'implémentation originale pour simplifier
+  expensiveComputation(); // remplace l'implémentation originale pour simplifier
 };
 
 export {
