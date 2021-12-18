@@ -1,4 +1,4 @@
-import { sendAnalyticsInDistributedBatches } from "./analytics.js";
+import { sendAnalyticsInDistributedBatches } from "./fake-analytics.js";
 import { openMenu, closeMenu } from "./menu.js";
 
 const onMenuClick = event => {

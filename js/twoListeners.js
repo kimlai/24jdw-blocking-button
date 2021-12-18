@@ -1,4 +1,4 @@
-import { sendAnalytics } from "./analytics.js";
+import { sendAnalytics } from "./fake-analytics.js";
 import { openMenu, closeMenu } from "./menu.js";
 
 const toggleMenu = event => {

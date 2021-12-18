@@ -1,4 +1,4 @@
-import { sendAnalyticsWithRequestIdleCallback } from "./analytics.js";
+import { sendAnalyticsWithRequestIdleCallback } from "./fake-analytics.js";
 import { openMenu, closeMenu } from "./menu.js";
 
 const onMenuClick = event => {
